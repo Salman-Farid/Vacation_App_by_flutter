@@ -1,98 +1,117 @@
-#!/bin/bash
+# Create README.md
+echo "# 🌴 Vacation App
 
-# Clone the repository
-git clone https://github.com/Salman-Farid/Vacation_App_by_flutter.git
-
-# Change to project directory
-cd Vacation_App_by_flutter
-
-# Create README.md with project details
-cat > README.md << EOL
-# 🌴 Vacation App
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/sourcegraph/sourcegraph/main/client/branded/src/assets/img/sourcegraph-mark.svg" width="200" alt="Vacation App Logo">
+<p align='center'>
+  <img src='https://raw.githubusercontent.com/sourcegraph/sourcegraph/main/client/branded/src/assets/img/sourcegraph-mark.svg' width='200' alt='Vacation App Logo'>
 </p>
 
-<p align="center">
-  <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter" alt="Platform"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
-  <a href="https://github.com/Salman-Farid/Vacation_App_by_flutter/stargazers"><img src="https://img.shields.io/github/stars/Salman-Farid/Vacation_App_by_flutter" alt="Stars"></a>
-</p>
+## 📱 Project Overview
 
-## 📱 Overview
+A stunning Flutter vacation planning app with beautiful UI/UX design.
 
-A stunning front-end vacation planning app built with Flutter, featuring beautiful UI design and smooth animations to help users discover and plan their perfect getaway.
+## ✨ Features
 
-## ✨ Key Features
+- Modern mobile interface
+- Destination discovery
+- Trip planning tools
+- Responsive design
 
-- 🎨 Modern and intuitive UI/UX
-- 🌅 Destination discovery interface
-- 📅 Trip planning tools
-- 🏖️ Visual destination guides
-- 🌤️ Weather information display
-- 🎯 Activity recommendations
-- 🌙 Dark mode support
-
-## 🛠️ Tech Stack
-
-- Flutter SDK
-- Dart
-- flutter_svg: [link](https://pub.dev/packages/flutter_svg)
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Flutter (Latest Version)
+- Flutter SDK
 - Android Studio/VS Code
-- Git
 
-### One-Line Installation
+### Installation
 \`\`\`bash
-git clone https://github.com/Salman-Farid/Vacation_App_by_flutter.git && cd Vacation_App_by_flutter && flutter pub get && flutter run
+git clone https://github.com/Salman-Farid/Vacation_App_by_flutter.git
+cd Vacation_App_by_flutter
+flutter pub get
+flutter run
 \`\`\`
 
-## 📁 Project Structure
+## 🛠 Tech Stack
+
+- Flutter
+- Dart
+- Material Design
+
+## 📂 Project Structure
+
 \`\`\`
 lib/
 ├── screens/
-│   ├── home/
-│   ├── details/
-│   └── booking/
 ├── widgets/
-├── utils/
-└── main.dart
+└── utils/
 \`\`\`
 
-## 🎯 Upcoming Features
-- Backend Integration
-- Real-time Booking System
-- User Authentication
-- Personalized Recommendations
-- Multi-language Support
-- Offline Mode
+## 🤝 Contributing
 
-## 👨‍💻 Contributing
-1. Fork the Project
-2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
-3. Commit your Changes (git commit -m "Add AmazingFeature")
-4. Push to the Branch (git push origin feature/AmazingFeature)
-5. Open a Pull Request
-
-## 🙌 Credits
-UI/UX Design: uxgiotto
+1. Fork repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Open pull request
 
 ## 📄 License
-MIT License
 
-## 📞 Contact
-Salman Farid - @YourTwitter
+MIT License" > README.md
 
-Project Link: https://github.com/Salman-Farid/Vacation_App_by_flutter
-EOL
+# Create .gitignore
+echo "# Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.dart_tool/
+.pub/
+build/
+ios/
+android/
+macos/
+web/
+windows/
+linux/
 
-# Install Flutter dependencies
-flutter pub get
+# IDEs
+.idea/
+.vscode/
 
-# Run the app
-flutter run
+# Miscellaneous
+*.log
+*.pyc
+.DS_Store" > .gitignore
+
+# Create GitHub workflow for CI
+mkdir -p .github/workflows
+echo "name: Flutter CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.10.0'
+    
+    - name: Install dependencies
+      run: flutter pub get
+    
+    - name: Analyze code
+      run: flutter analyze
+    
+    - name: Run tests
+      run: flutter test" > .github/workflows/flutter_ci.yml
+
+# Commit changes
+git add README.md .gitignore .github/workflows/flutter_ci.yml
+git commit -m "Setup GitHub repository structure"
+git push origin main
